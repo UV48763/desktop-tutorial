@@ -1,0 +1,162 @@
+/* =============================== */
+/* 1. 全域與手機版樣式 (Mobile First) */
+/* 這是所有設備都套用的基礎樣式 */
+/* =============================== */
+
+:root {
+    --primary-color: #f33333; /* 遊戲人生風格的紅色 */
+    --secondary-color: #222222;
+    --background-color: #f8f9fa;
+    --header-footer-bg: #444444;
+    --header-footer-color: white;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+}
+
+/* 頁首 */
+header {
+    background: var(--header-footer-bg);
+    color: var(--header-footer-color);
+    padding: 1.5em 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 導覽列 (如果您的 HTML 中沒有 nav 標籤，請忽略此處，但建議加入) */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: var(--primary-color);
+    display: flex;
+    flex-direction: column; /* 手機版：垂直堆疊 */
+}
+
+nav ul li a {
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: var(--header-footer-color);
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li.active a {
+    background-color: #d11d1d;
+}
+
+/* 主要內容區 */
+main {
+    padding: 20px;
+    margin: 15px auto; /* 手機上也會有邊距 */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 多媒體響應式設定 (讓圖片和影片寬度不超出螢幕) */
+img {
+    max-width: 100%; /* 確保圖片寬度不超出容器 */
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 影片容器 RWD 技巧：保持 16:9 比例 */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 比例 (9 / 16 * 100%) */
+    height: 0;
+    overflow: hidden;
+    margin: 20px 0;
+    background: black; /* 影片載入前的背景 */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 移除 HTML 上的 width="1022" 和 height="575" 才能讓這段 CSS 生效！ */
+}
+
+/* 頁尾 */
+footer {
+    background: var(--header-footer-bg);
+    color: var(--header-footer-color);
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #90c2ff;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* =============================== */
+/* 2. 媒體查詢 (Media Queries) */
+/* 用於平板及電腦上的佈局調整 */
+/* =============================== */
+
+/* 平板尺寸或更大 (寬度 768px 或以上) */
+@media screen and (min-width: 768px) {
+    
+    /* 導覽列：改為水平排列 */
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    nav ul li {
+        flex: 1; /* 讓導覽列項目平均分配寬度 */
+    }
+
+    nav ul li a {
+        border-bottom: none; 
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* 讓主要內容區在寬螢幕上置中並有最大寬度 */
+    main {
+        max-width: 1000px;
+        padding: 40px;
+    }
+    
+    /* 在寬螢幕上，讓影片、圖表和圖片並排 (或至少並排兩欄) */
+    .media-section {
+        display: flex;
+        flex-wrap: wrap; /* 允許換行 */
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .video-container, .photo-container, .chart-section {
+        /* 在大螢幕上各佔約 50% 寬度，形成兩欄佈局 */
+        flex: 1 1 calc(50% - 10px); 
+        min-width: 300px; /* 防止在平板上過度壓縮 */
+    }
+
+    /* 如果要三欄佈局 (影片、圖表、圖片) 則可調整為 33.3% */
+    /*
+    .video-container, .photo-container, .chart-section {
+        flex: 1 1 calc(33.3% - 14px); 
+    }
+    */
+}

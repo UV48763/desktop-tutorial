@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>專案網站 - 首頁</title>
     <link rel="stylesheet" href="css/style.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     
     <header>
-        <h1>[UVの愛] - 首頁</h1>
+        <h1>快樂作業時間</h1>
     </header>
 
 
@@ -18,24 +19,30 @@
         
         <section class="media-section">
             <div class="video-container">
-                <h4>精選影片：土撥鼠的驚喜</h4>
-                <iframe 
-                    width="100%" 
-                    height="315" 
-                    src="https://www.youtube.com/embed/C5zTO4nhXl4" 
-                    title="土撥鼠尖叫（原版）" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen
-                ></iframe>
+                <h4>空白永不敗北</h4>
+                <iframe  
+                        src="https://www.youtube.com/embed/FghoeusbkUk?
+                        list=RDFghoeusbkUk" 
+                        title="遊戲人生 No Game No Life (This game) 空白永不分開_鈴木このみ(中日歌詞)" 		   frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 									allowfullscreen>
+                 </iframe>
             </div>
+            
+            <h2>全球人口年齡分佈統計</h2>
+        <section class="chart-section">
+            <h3>全球人口每十歲年齡組分佈圖</h3>
+            <div style="max-width: 500px; margin: 0 auto;">
+                <canvas id="pieChart"></canvas> 
+            </div>
+        </section>
 
             <div class="photo-container">
-                <h4>我最喜歡的照片</h4>
+                <h4>最愛的圖片</h4>
                 <img 
-                    src="https://s3.getstickerpack.com/storage/uploads/sticker-pack/bugcat-capoo-al-estilo-meme/sticker_13.png?0d616c08492172735557174db0ee5ae5" 
-                    alt="Bugcat Capoo 表情包" 
-                    title="Capoo"
+                    src="images/no_game_no_life.jpg" 
+                    alt="NO GAME NO LIFE 遊戲人生 " 
+                    title="我最喜歡的動漫圖"
                 >
             </div>
         </section>
@@ -44,13 +51,13 @@
 
     <footer>
         <div class="external-links">
-            <p>友站連結：
+            <p>偷來的連結：
                 <a href="https://kuro4182.github.io/Kuro-s-web/" target="_blank">黃梓宇</a> | 
-                <a href="http://同學B的網址" target="_blank">同學 B</a> | 
+                <a href="https://a6706976-5455.github.io/the-internet-homework/#links" target="_blank">阿彥同學</a> | 
                 <a href="http://同學C的網址" target="_blank">同學 C</a>
             </p>
         </div>
-        <p>&copy; 2025 網頁設計專題. 版權所有。</p>
+       
     </footer>
     
     <script src="js/script.js"></script>
